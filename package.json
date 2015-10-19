@@ -24,9 +24,9 @@
   "files": [
     "lib"
   ],
-  "dependencies": {
-    "react": "^0.13.1"
-  },
+  "peerDependencies": {
+    "react": ">=0.13.3 || ^0.14.0-rc1"
+  }
   "devDependencies": {
     "babel": "^5.4.5",
     "babel-eslint": "^3.1.5",
