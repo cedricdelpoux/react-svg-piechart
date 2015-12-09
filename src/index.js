@@ -60,6 +60,7 @@ export default class PieChart {
       data.map((d, i) => {
         const expandVal = expandOnHover && expandedSector === i ? expandPx : 0
         const angle = 360 * d.value / total
+        const largeArc = (d.value / total) <= 0.5 ? 0 : 1
 
         startAngle = endAngle
         endAngle = startAngle + angle
@@ -73,7 +74,7 @@ export default class PieChart {
         const dPath =
           'M' + center + ',' + center + ' ' +
           'L' + x1 + ',' + y1 + ' ' +
-          'A' + (center + expandVal) + ',' + (center + expandVal) + ' 0 0,1 ' + x2 + ',' + y2 + ' ' +
+          'A' + (center + expandVal) + ',' + (center + expandVal) + ' 0 ' + largeArc + ',1 ' + x2 + ',' + y2 + ' ' +
           'z'
 
         return (
