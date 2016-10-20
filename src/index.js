@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-export default class PieChart {
+export default class PieChart extends React.Component {
   static propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({
       value: PropTypes.number,
