@@ -1,7 +1,11 @@
 {
-  "stage": 0,
-  "blacklist": [
-    "es6.tailCall",
-    "spec.functionName"
-  ]
+  "presets": [
+    ["latest", {
+      "es2015": {
+        "loose": true,
+        "modules": false
+      }
+    }],
+    "react"
+  ],
 }

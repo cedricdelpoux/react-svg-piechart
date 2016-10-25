@@ -1,57 +1,29 @@
-import React, { PropTypes } from 'react'
+import React, {Component, PropTypes} from "react"
 
-export default class PieChart extends React.Component {
-  static propTypes = {
-    data: PropTypes.arrayOf(PropTypes.shape({
-      value: PropTypes.number,
-      color: PropTypes.string,
-    })),
-    palette: PropTypes.arrayOf(PropTypes.string),
-    sectorStrokeWidth: PropTypes.number,
-    expandOnHover: PropTypes.bool,
-    expandedSector: PropTypes.number,
-    onSectorHover: PropTypes.func,
-    expandPx: PropTypes.number,
-    viewBoxWidth: PropTypes.number,
-  }
-
-  static defaultProps = {
-    data: [],
-    palette: [
-      '#2ecc71',
-      '#3498db',
-      '#9b59b6',
-      '#f1c40f',
-      '#e67e22',
-      '#e74c3c',
-      '#1abc9c',
-    ],
-    sectorStrokeWidth: 3,
-    expandOnHover: true,
-    expandedSector: null,
-    expandPx: 10,
-    viewBoxWidth: 300,
-  }
-
-  handleMouseEnterOnSector(i) {
-    const { onMouseEnterOnSector } = this.props
-
-    if (onMouseEnterOnSector) {
-      onMouseEnterOnSector(i)
+class PieChart extends Component {
+  handleSectorHover(i) {
+    if (this.props.onSectorHover) {
+      this.props.onSectorHover(i)
     }
   }
 
-  handleMouseLeaveFromSector() {
-    const { onMouseLeaveFromSector } = this.props
-
-    if (onMouseLeaveFromSector) {
-      onMouseLeaveFromSector(null)
-    }
+  getSector() {
+    const {data, expandOnHover, expandPx, expandedSector, palette, viewBoxWidth} = this.props
+    const center = viewBoxWidth / 2
+    const expandVal = expandOnHover && expandedSector === 0 ? expandPx : 0
+    return (
+      <ellipse
+        fill={data[0].color || palette[0]}
+        onMouseEnter={() => this.handleSectorHover(0)}
+        onMouseLeave={() => this.handleSectorHover(null)}
+        cx={center} cy={center} rx={center + expandVal} ry={center + expandVal}
+      />
+    )
   }
 
   getSectors() {
-    const { data, palette, sectorStrokeWidth, expandOnHover, expandedSector, expandPx, viewBoxWidth } = this.props
-    const total = Math.ceil(data.reduce((n, d) => d.value + n, 0))
+    const {data, palette, sectorStrokeWidth, expandOnHover, expandedSector, expandPx, viewBoxWidth} = this.props
+    const total = Math.ceil(data.reduce((prev, current) => current.value + prev, 0))
     const center = viewBoxWidth / 2
     let startAngle = 0
     let endAngle = 0
@@ -72,32 +44,71 @@ export default class PieChart extends React.Component {
         const y2 = Math.round(center + (center + expandVal) * Math.sin(Math.PI * endAngle / 180))
 
         const dPath =
-          'M' + center + ',' + center + ' ' +
-          'L' + x1 + ',' + y1 + ' ' +
-          'A' + (center + expandVal) + ',' + (center + expandVal) + ' 0 ' + largeArc + ',1 ' + x2 + ',' + y2 + ' ' +
-          'z'
+          "M" + center + "," + center + " " +
+          "L" + x1 + "," + y1 + " " +
+          "A" + (center + expandVal) + "," + (center + expandVal) + " 0 " + largeArc + ",1 " + x2 + "," + y2 + " " +
+          "z"
 
         return (
           <path
-            key={ 'sector' + i }
-            d={ dPath }
-            fill={ d.color || palette[i % palette.length] }
+            key={"sector" + i}
+            d={dPath}
+            fill={d.color || palette[i % palette.length]}
             stroke="#fff"
-            strokeWidth={ sectorStrokeWidth }
-            onMouseEnter={ () => this.handleMouseEnterOnSector(i) }
-            onMouseLeave={ () => this.handleMouseLeaveFromSector() } />
+            strokeWidth={sectorStrokeWidth }
+            onMouseEnter={() => this.handleSectorHover(i)}
+            onMouseLeave={() => this.handleSectorHover(null)}
+          />
         )
       })
     )
   }
 
   render() {
-    const { expandPx, viewBoxWidth, props } = this.props
+    const {className, data, expandPx, viewBoxWidth } = this.props
     return (
-      <svg viewBox={ `0 0 ${viewBoxWidth + expandPx * 2} ${viewBoxWidth + expandPx * 2}` } { ...props }>
+      <svg className={className} viewBox={`0 0 ${viewBoxWidth + expandPx * 2} ${viewBoxWidth + expandPx * 2}` }>
         <g transform={`translate(${expandPx}, ${expandPx})`}>
-          { this.getSectors() }
+          {data.length === 1
+            ? this.getSector()
+            : this.getSectors()
+          }
         </g>
       </svg>
   )}
 }
+
+PieChart.propTypes = {
+  className: PropTypes.string,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.number,
+    color: PropTypes.string,
+  })),
+  palette: PropTypes.arrayOf(PropTypes.string),
+  sectorStrokeWidth: PropTypes.number,
+  expandOnHover: PropTypes.bool,
+  expandedSector: PropTypes.number,
+  onSectorHover: PropTypes.func,
+  expandPx: PropTypes.number,
+  viewBoxWidth: PropTypes.number,
+}
+
+PieChart.defaultProps = {
+  data: [],
+  palette: [
+    "#2ecc71",
+    "#3498db",
+    "#9b59b6",
+    "#f1c40f",
+    "#e67e22",
+    "#e74c3c",
+    "#1abc9c",
+  ],
+  sectorStrokeWidth: 3,
+  expandOnHover: true,
+  expandedSector: null,
+  expandPx: 10,
+  viewBoxWidth: 300,
+}
+
+export default PieChart
