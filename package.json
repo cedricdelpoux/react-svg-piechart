@@ -36,7 +36,9 @@
     "eslint": "~3.5.0",
     "eslint-loader": "~1.5.0",
     "eslint-plugin-react": "~6.2.0",
+    "github-release-from-changelog": "^1.2.1",
     "node-libs-browser": "~0.5.2",
+    "npmpub": "^3.1.0",
     "webpack": "~1.13.1"
   },
   "scripts": {
@@ -44,6 +46,7 @@
     "build": "webpack --progress --colors",
     "watch": "webpack --progress --colors --watch",
     "lint": "eslint src/",
-    "prepublish": "npm run clean && npm run build"
+    "prepublish": "npm run clean && npm run build",
+    "release": "npmpublish && github-release-from-changelog"
   }
 }
