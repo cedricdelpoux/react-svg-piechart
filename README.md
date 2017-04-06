@@ -19,25 +19,15 @@ See [changelog](./CHANGELOG.md)
 ![PieChart exemple](/screenshots/socialchart.png)
 
 ```js
-import React, { Component } from 'react'
-import { PieChart } from 'components/piechart'
+import React, { Component } from 'react';
+import PieChart from 'react-svg-piechart';
 
 export default class MyComponent extends Component {
-  constructor(props, context) {
-    super(props, context)
-
-    this.state = {
-      expandedSector: null,
-    }
+  state = {
+    expandedSector: null,
   }
 
-  handleMouseEnterOnSector(sector) {
-    this.setState({ expandedSector: sector })
-  }
-
-  handleMouseLeaveFromSector() {
-    this.setState({ expandedSector: null })
-  }
+  handleMouseEnterOnSector = (sector) => this.setState({ expandedSector: sector });
 
   render() {
     const data = [
@@ -46,33 +36,33 @@ export default class MyComponent extends Component {
       { label: 'Google Plus', value: 30, color: '#dd4b39' },
       { label: 'Pinterest', value: 20, color: '#cb2027' },
       { label: 'Linked In', value: 10, color: '#007bb6' },
-    ]
+    ];
+
+    const { expandedSector } = this.state;
 
     return (
       <div>
-        // PieChart component
         <PieChart
           data={ data }
-          expandedSector={ this.state.expandedSector }
-          onMouseEnterOnSector={ ::this.handleMouseEnterOnSector }
-          onMouseLeaveFromSector={ ::this.handleMouseLeaveFromSector }
+          expandedSector={expandedSector}
+          onSectorHover={this.handleMouseEnterOnSector}
+          sectorStrokeWidth={2}
+          expandOnHover
         />
-
-        // Legend
         <div>
         {
-          data.map((d, i) => (
-            <div key={ i }>
-              <span style={{ background: d.color }}></span>
-              <span style={{ fontWeight: this.state.expandedSector == i ? 'bold' : null }}>
-                { d.label } : { d.value }
+          data.map((element, i) => (
+            <div key={i}>
+              <span style={{ background: element.color }}></span>
+              <span style={{ fontWeight: this.state.expandedSector === i ? 'bold' : null }}>
+                {element.label} : {element.value}
               </span>
             </div>
           ))
         }
         </div>
       </div>
-    )
+    );
   }
 }
 ```
