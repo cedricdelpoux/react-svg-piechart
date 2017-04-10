@@ -19,15 +19,15 @@ See [changelog](./CHANGELOG.md)
 ![PieChart exemple](/screenshots/socialchart.png)
 
 ```js
-import React, { Component } from 'react';
-import PieChart from 'react-svg-piechart';
+import React, { Component } from 'react'
+import PieChart from 'react-svg-piechart'
 
 export default class MyComponent extends Component {
   state = {
     expandedSector: null,
   }
 
-  handleMouseEnterOnSector = (sector) => this.setState({ expandedSector: sector });
+  handleMouseEnterOnSector = sector => this.setState({ expandedSector: sector })
 
   render() {
     const data = [
@@ -36,9 +36,9 @@ export default class MyComponent extends Component {
       { label: 'Google Plus', value: 30, color: '#dd4b39' },
       { label: 'Pinterest', value: 20, color: '#cb2027' },
       { label: 'Linked In', value: 10, color: '#007bb6' },
-    ];
+    ]
 
-    const { expandedSector } = this.state;
+    const { expandedSector } = this.state
 
     return (
       <div>
@@ -62,7 +62,7 @@ export default class MyComponent extends Component {
         }
         </div>
       </div>
-    );
+    )
   }
 }
 ```
