@@ -1,6 +1,6 @@
 {
   "name": "react-svg-piechart",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A lightweight responsive pie chart component for React using only SVG",
   "repository": {
     "type": "git",
