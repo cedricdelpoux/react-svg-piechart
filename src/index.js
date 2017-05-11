@@ -56,7 +56,7 @@ class PieChart extends Component {
             d={dPath}
             fill={d.color || palette[i % palette.length]}
             stroke="#fff"
-            strokeWidth={sectorStrokeWidth }
+            strokeWidth={sectorStrokeWidth}
             onMouseEnter={() => this.handleSectorHover(i)}
             onMouseLeave={() => this.handleSectorHover(null)}
           />
@@ -66,9 +66,9 @@ class PieChart extends Component {
   }
 
   render() {
-    const {className, data, expandPx, viewBoxWidth } = this.props
+    const {className, data, expandPx, viewBoxWidth} = this.props
     return (
-      <svg className={className} viewBox={`0 0 ${viewBoxWidth + expandPx * 2} ${viewBoxWidth + expandPx * 2}` }>
+      <svg className={className} viewBox={`0 0 ${viewBoxWidth + expandPx * 2} ${viewBoxWidth + expandPx * 2}`}>
         <g transform={`translate(${expandPx}, ${expandPx})`}>
           {data.length === 1
             ? this.getSector()
@@ -76,7 +76,8 @@ class PieChart extends Component {
           }
         </g>
       </svg>
-  )}
+    )
+  }
 }
 
 PieChart.propTypes = {

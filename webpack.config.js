@@ -1,60 +1,50 @@
-var webpack = require('webpack')
-var path = require('path')
+var webpack = require("webpack")
+var path = require("path")
 
 var sources = [
-  path.resolve(__dirname, 'src'),
+  path.resolve(__dirname, "src"),
 ]
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
     path: __dirname,
-    filename: './lib/index.js',
-    library: 'react-svg-piechart',
-    libraryTarget: 'umd',
+    filename: "./lib/index.js",
+    library: "react-svg-piechart",
+    libraryTarget: "umd",
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: [".js"]
   },
   module: {
-    preLoaders: [
+    loaders: [
       {
         test: /\.js?$/,
         include: sources,
-        loader: 'eslint',
-        query: {
-          presets: ['latest']
-        },
+        enforce: "pre",
+        loader: "eslint-loader",
       },
-    ],
-    loaders: [
       {
         test: /\.js$/,
         include: sources,
-        loader: 'babel',
+        loader: "babel-loader",
         query: {
-          presets: ['latest']
+          presets: ["latest"]
         },
       },
     ],
   },
  externals: {
     react: {
-      root: 'React',
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react',
+      root: "React",
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "react",
     },
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-    }),
+    new webpack.optimize.UglifyJsPlugin(
+      {compress: {warnings: false}}
+    ),
   ]
 }

@@ -1,3 +1,9 @@
+# 1.2.2
+
+* Updated : Import `PropTypes` separately
+* Updated : Upgrade deps
+* Updated : Webpack build
+
 # 1.2.1
 
 * Updated : Documentation
