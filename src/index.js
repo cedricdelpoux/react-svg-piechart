@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 class PieChart extends Component {
   handleSectorHover(i, e) {
-    if (e.type === 'touchend' && !this.props.shrinkOnTouchEnd) return
+    if (e.type === "touchend" && !this.props.shrinkOnTouchEnd) return
     e.preventDefault()
     if (this.props.onSectorHover) {
       this.props.onSectorHover(i)

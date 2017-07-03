@@ -84,6 +84,7 @@ export default class MyComponent extends Component {
     * `palette`: Array - by default palette contains 7 hexadecimal colors
     * `sectorStrokeWidth`: Number - by default is 3
     * `expandOnHover`: Boolean - by default is true
+    * `shrinkOnTouchEnd`: Boolean - by default is false
     * `expandedSector`: Number - by default is null
     * `onSectorHover`: Function - by default is null
     * `expandPx`: Number - by default is 10,
