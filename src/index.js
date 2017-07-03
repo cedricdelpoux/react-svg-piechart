@@ -2,7 +2,9 @@ import React, {Component} from "react"
 import PropTypes from "prop-types"
 
 class PieChart extends Component {
-  handleSectorHover(i) {
+  handleSectorHover(i, e) {
+    if (e.type === 'touchend' && !this.props.shrinkOnTouchEnd) return
+    e.preventDefault()
     if (this.props.onSectorHover) {
       this.props.onSectorHover(i)
     }
@@ -15,8 +17,10 @@ class PieChart extends Component {
     return (
       <ellipse
         fill={data[0].color || palette[0]}
-        onMouseEnter={() => this.handleSectorHover(0)}
-        onMouseLeave={() => this.handleSectorHover(null)}
+        onTouchStart={(e) => this.handleSectorHover(0, e)}
+        onTouchEnd={(e) => this.handleSectorHover(null, e)}
+        onMouseEnter={(e) => this.handleSectorHover(0, e)}
+        onMouseLeave={(e) => this.handleSectorHover(null, e)}
         cx={center} cy={center} rx={center + expandVal} ry={center + expandVal}
       />
     )
@@ -57,8 +61,10 @@ class PieChart extends Component {
             fill={d.color || palette[i % palette.length]}
             stroke="#fff"
             strokeWidth={sectorStrokeWidth}
-            onMouseEnter={() => this.handleSectorHover(i)}
-            onMouseLeave={() => this.handleSectorHover(null)}
+            onTouchStart={(e) => this.handleSectorHover(i, e)}
+            onTouchEnd={(e) => this.handleSectorHover(null, e)}
+            onMouseEnter={(e) => this.handleSectorHover(i, e)}
+            onMouseLeave={(e) => this.handleSectorHover(null, e)}
           />
         )
       })
@@ -89,6 +95,7 @@ PieChart.propTypes = {
   palette: PropTypes.arrayOf(PropTypes.string),
   sectorStrokeWidth: PropTypes.number,
   expandOnHover: PropTypes.bool,
+  shrinkOnTouchEnd: PropTypes.bool,
   expandedSector: PropTypes.number,
   onSectorHover: PropTypes.func,
   expandPx: PropTypes.number,
@@ -108,6 +115,7 @@ PieChart.defaultProps = {
   ],
   sectorStrokeWidth: 3,
   expandOnHover: true,
+  shrinkOnTouchEnd: false,
   expandedSector: null,
   expandPx: 10,
   viewBoxWidth: 300,

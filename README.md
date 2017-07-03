@@ -58,6 +58,7 @@ export default class MyComponent extends Component {
                     onSectorHover={this.handleMouseEnterOnSector}
                     sectorStrokeWidth={2}
                     expandOnHover
+                    shrinkOnTouchEnd
                 />
                 <div>
                 {
