@@ -1,3 +1,7 @@
+# 1.3.0
+
+* Added: Mobile touchevents
+
 # 1.2.3
 
 * Updated : Upgrade deps
