@@ -1,3 +1,7 @@
+# 2.0.1
+
+* Fixed: Data with 0 value
+
 # 2.0.0
 
 * Updated: Complete rewrite

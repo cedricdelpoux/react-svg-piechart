@@ -71,12 +71,16 @@ class PieChart extends React.Component {
     const {data, expandSize, viewBoxSize} = this.props
     const center = viewBoxSize / 2
     const offset = this.shouldExpand() ? expandSize : 0
-    return data && data.length > 0 ? (
+    const dataCount = data.reduce(
+      (count, d) => (d.value > 0 ? count + 1 : count),
+      0
+    )
+    return data && dataCount > 0 ? (
       <svg
         viewBox={`0 0 ${viewBoxSize + offset * 2} ${viewBoxSize + offset * 2}`}
       >
         <g transform={`translate(${offset}, ${offset})`}>
-          {data.length === 1
+          {data.length === 1 || dataCount === 1
             ? this.renderSingleData(data[0], center)
             : this.renderMultipleData(center)}
         </g>
