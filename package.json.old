@@ -1,0 +1,47 @@
+{
+  "name": "react-svg-piechart",
+  "version": "1.4.0",
+  "description":
+    "A lightweight responsive pie chart component for React using only SVG",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuopled/react-svg-piechart.git"
+  },
+  "keywords": ["react", "pie", "chart", "piechart", "responsive", "svg"],
+  "author": "Cédric Delpoux <xuopled@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuopled/react-svg-piechart/issues"
+  },
+  "homepage": "https://github.com/xuopled/react-svg-piechart#readme",
+  "main": "lib/index.js",
+  "files": ["lib"],
+  "peerDependencies": {
+    "react": "^15.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-react": "^7.0.0",
+    "github-release-from-changelog": "^1.2.1",
+    "node-libs-browser": "^2.0.0",
+    "npmpub": "^3.1.0",
+    "webpack": "^2.5.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.9"
+  },
+  "scripts": {
+    "clean": "rm -rf lib",
+    "build": "webpack --progress --colors",
+    "watch": "webpack --progress --colors --watch",
+    "lint": "eslint src/",
+    "prepublish": "npm run clean && npm run build",
+    "release": "npmpublish && github-release-from-changelog"
+  }
+}

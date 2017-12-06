@@ -1,3 +1,8 @@
+# 2.0.0
+
+* Updated: Complete rewrite
+* Added: Tests
+
 # 1.4.0
 
 * Updated: dependencies
