@@ -1,3 +1,7 @@
+# 2.0.2
+
+* Fixed: UMD global name
+
 # 2.0.1
 
 * Fixed: Data with 0 value

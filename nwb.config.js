@@ -24,7 +24,7 @@ module.exports = {
     cjs: true,
     esModules: true,
     umd: {
-      global: "ReactDemoPage",
+      global: "ReactSvgPiechart",
       externals: {
         react: "React",
         "prop-types": "PropTypes",
