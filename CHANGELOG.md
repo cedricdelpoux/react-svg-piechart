@@ -1,3 +1,7 @@
+# 2.0.3
+
+* Fixed: Single data color
+
 # 2.0.2
 
 * Fixed: UMD global name
