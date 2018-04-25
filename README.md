@@ -71,12 +71,13 @@ const MyCompo = () => (
 | strokeLinejoin | String                | Sector stroke line join (One of `miter`, `round`, `bevel`)                                                   | "round" |
 | strokeWidth    | Number                | Sector width, in pixels (0 to disable stroke)                                                                | 1       |
 | viewBoxSize    | Number                | SVG viewbox width and height                                                                                 | 100     |
+| expandedIndex  | Number                | Pass in an index to manually control the expanded pie of the pie                                             | -1      |
 
 ## Contributing
 
-* ⇄ Pull/Merge requests and ★ Stars are always welcome.
-* For bugs and feature requests, please [create an issue][github-issue].
-* Pull requests must be accompanied by passing automated tests (`npm test`).
+*   ⇄ Pull/Merge requests and ★ Stars are always welcome.
+*   For bugs and feature requests, please [create an issue][github-issue].
+*   Pull requests must be accompanied by passing automated tests (`npm test`).
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines
 
