@@ -101,6 +101,8 @@ PieChart.propTypes = {
   strokeLinejoin: Sector.propTypes.strokeLinejoin,
   strokeWidth: Sector.propTypes.strokeWidth,
   viewBoxSize: PropTypes.number,
+  transitionDuration: Sector.propTypes.transitionDuration,
+  transitionTimingFunction: Sector.propTypes.transitionTimingFunction,
 }
 
 PieChart.defaultProps = {
@@ -113,6 +115,8 @@ PieChart.defaultProps = {
   strokeLinejoin: Sector.defaultProps.strokeLinejoin,
   strokeWidth: Sector.defaultProps.strokeWidth,
   viewBoxSize: 100,
+  transitionDuration: Sector.defaultProps.transitionDuration,
+  transitionTimingFunction: Sector.defaultProps.transitionTimingFunction,
 }
 
 export default PieChart
