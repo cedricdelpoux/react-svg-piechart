@@ -6,7 +6,19 @@ import Sectors from "./Sectors"
 import Sector from "./Sector"
 
 class PieChart extends React.Component {
-  state = {expandedIndex: null}
+  state = {
+    expandedIndex: null,
+  }
+
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.expandedIndex >= 0) {
+      return {
+        expandedIndex: nextProps.expandedIndex,
+      }
+    } else {
+      return null
+    }
+  }
 
   handleSectorHover = (data, index, e) => {
     const {expandOnHover, onSectorHover} = this.props
@@ -96,6 +108,7 @@ PieChart.propTypes = {
   ).isRequired,
   expandOnHover: PropTypes.bool,
   expandSize: PropTypes.number,
+  expandedIndex: PropTypes.number,
   onSectorHover: PropTypes.func,
   strokeColor: Sector.propTypes.strokeColor,
   strokeLinejoin: Sector.propTypes.strokeLinejoin,
@@ -107,6 +120,7 @@ PieChart.defaultProps = {
   data: [],
   expandOnHover: false,
   expandSize: Sectors.defaultProps.expandSize,
+  expandedIndex: -1,
   onSectorHover: null,
   shrinkOnTouchEnd: false,
   strokeColor: Sector.defaultProps.strokeColor,
