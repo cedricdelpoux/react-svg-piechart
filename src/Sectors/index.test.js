@@ -1,7 +1,10 @@
-import {mount, shallow} from "enzyme"
+import {mount, shallow, configure} from "enzyme"
+import Adapter from "enzyme-adapter-react-16"
 import React from "react"
 
 import Sectors from "./index"
+
+configure({adapter: new Adapter()})
 
 const onSectorHover = jest.fn()
 const d1 = {value: 100, color: "#22594e"}

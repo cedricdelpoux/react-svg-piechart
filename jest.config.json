@@ -6,5 +6,7 @@
   },
   "moduleNameMapper": {
     "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
-  }
+  },
+  "setupFiles": ["<rootDir>/shim.js", "<rootDir>/setup.js"],
+  "coveragePathIgnorePatterns": ["/node_modules/", "/shim.js"]
 }
