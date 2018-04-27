@@ -12,6 +12,8 @@ const Sector = ({
   onMouseLeave,
   path,
   title,
+  transitionDuration,
+  transitionTimingFunction,
 }) => {
   return (
     <path
@@ -24,6 +26,11 @@ const Sector = ({
       onTouchEnd={onTouchEnd}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      style={{
+        transitionProperty: "all",
+        transitionTimingFunction: transitionTimingFunction,
+        transitionDuration: transitionDuration,
+      }}
     >
       {title && <title>{title}</title>}
     </path>
@@ -41,6 +48,8 @@ Sector.propTypes = {
   strokeLinejoin: PropTypes.string,
   strokeWidth: PropTypes.number,
   title: PropTypes.string,
+  transitionDuration: PropTypes.string,
+  transitionTimingFunction: PropTypes.string,
 }
 
 Sector.defaultProps = {
@@ -48,6 +57,8 @@ Sector.defaultProps = {
   strokeWidth: 1,
   strokeLinejoin: "round",
   title: null,
+  transitionDuration: "0s",
+  transitionTimingFunction: "ease-out",
 }
 
 export default Sector
