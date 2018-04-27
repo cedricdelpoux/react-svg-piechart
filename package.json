@@ -28,7 +28,6 @@
     "test": "jest --config jest.config.json --colors --no-cache",
     "test:watch": "yarn test -- --watch"
   },
-  "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
@@ -36,7 +35,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "enzyme": "^2.9.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.5.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-loader": "^1.9.0",
@@ -53,13 +53,14 @@
     "nwb": "^0.20.0",
     "prettier": "^1.5.3",
     "prop-types": "^15.6.0",
-    "react": "^15.6.1",
+    "raf": "^3.4.0",
+    "react": "^16.0.0",
     "react-demo-page": "^0.3.4",
-    "react-dom": "^15.6.1",
-    "react-test-renderer": "^15.6.1"
+    "react-dom": "^16.0.0",
+    "react-test-renderer": "^16.3.2"
   },
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
