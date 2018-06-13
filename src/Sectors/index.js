@@ -12,13 +12,10 @@ const Sectors = ({
   strokeColor,
   ...props
 }) => {
-  const total = Math.ceil(
-    data.reduce((prev, current) => current.value + prev, 0)
-  )
+  const total = data.reduce((prev, current) => current.value + prev, 0)
   let angleStart = 0
   let angleEnd = 0
-
-  return (
+  return total > 0 ? (
     <g>
       {data.map((d, i) => {
         const isLarge = d.value / total > 0.5
@@ -59,7 +56,7 @@ const Sectors = ({
         )
       })}
     </g>
-  )
+  ) : null
 }
 
 Sectors.propTypes = {

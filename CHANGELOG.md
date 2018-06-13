@@ -1,3 +1,7 @@
+# 2.1.1
+
+* Fixed: Charts with values < 1
+
 # 2.1.0
 
 * Added: Manual expand feature by @tnormington
