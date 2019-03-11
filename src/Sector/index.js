@@ -14,8 +14,11 @@ const Sector = ({
   title,
   transitionDuration,
   transitionTimingFunction,
+  hyperlinkMethod,
 }) => {
-  return (
+  let result
+
+  const content = (
     <path
       d={path}
       fill={fill}
@@ -35,6 +38,22 @@ const Sector = ({
       {title && <title>{title}</title>}
     </path>
   )
+
+  if (hyperlinkMethod) {
+    result = (
+      <a
+        xlinkHref={hyperlinkMethod({
+          title,
+        })}
+      >
+        {content}
+      </a>
+    )
+  } else {
+    result = content
+  }
+
+  return result
 }
 
 Sector.propTypes = {
@@ -50,6 +69,7 @@ Sector.propTypes = {
   title: PropTypes.string,
   transitionDuration: PropTypes.string,
   transitionTimingFunction: PropTypes.string,
+  hyperlinkMethod: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 }
 
 Sector.defaultProps = {
@@ -59,6 +79,7 @@ Sector.defaultProps = {
   title: null,
   transitionDuration: "0s",
   transitionTimingFunction: "ease-out",
+  hyperlinkMethod: false,
 }
 
 export default Sector

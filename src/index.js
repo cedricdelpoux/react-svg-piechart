@@ -103,6 +103,7 @@ PieChart.propTypes = {
   viewBoxSize: PropTypes.number,
   transitionDuration: Sector.propTypes.transitionDuration,
   transitionTimingFunction: Sector.propTypes.transitionTimingFunction,
+  hyperlinkMethod: Sector.propTypes.hyperlinkMethod,
 }
 
 PieChart.defaultProps = {
@@ -117,6 +118,7 @@ PieChart.defaultProps = {
   viewBoxSize: 100,
   transitionDuration: Sector.defaultProps.transitionDuration,
   transitionTimingFunction: Sector.defaultProps.transitionTimingFunction,
+  hyperlinkMethod: Sector.defaultProps.hyperlinkMethod,
 }
 
 export default PieChart
