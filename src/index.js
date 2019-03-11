@@ -92,6 +92,7 @@ PieChart.propTypes = {
       color: PropTypes.string.isRequired,
       title: PropTypes.string,
       value: PropTypes.number.isRequired,
+      href: PropTypes.string,
     })
   ).isRequired,
   expandOnHover: PropTypes.bool,
@@ -103,7 +104,6 @@ PieChart.propTypes = {
   viewBoxSize: PropTypes.number,
   transitionDuration: Sector.propTypes.transitionDuration,
   transitionTimingFunction: Sector.propTypes.transitionTimingFunction,
-  hyperlinkMethod: Sector.propTypes.hyperlinkMethod,
 }
 
 PieChart.defaultProps = {
@@ -118,7 +118,6 @@ PieChart.defaultProps = {
   viewBoxSize: 100,
   transitionDuration: Sector.defaultProps.transitionDuration,
   transitionTimingFunction: Sector.defaultProps.transitionTimingFunction,
-  hyperlinkMethod: Sector.defaultProps.hyperlinkMethod,
 }
 
 export default PieChart

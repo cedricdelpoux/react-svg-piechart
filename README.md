@@ -61,19 +61,18 @@ const MyCompo = () => (
 
 ### Props
 
-| Name                     | PropType              | Description                                                                                                  | Default                               |
-| ------------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| data                     | Array of data Objects | One data is {value: number (required), color: string, title: string, expanded: bool}                         | []                                    |
-| expandOnHover            | Boolean               | Active hover and touch (mobile) effetcs                                                                      | false                                 |
-| onSectorHover            | Function              | Callback when one sector is hovered or touched (mobile) - ex: `(data, index, event) => {}`                   | null                                  |
+| Name                     | PropType              | Description                                                                                                  | Default    |
+| ------------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| data                     | Array of data Objects | One data is {value: number (required), color: string, title: string, expanded: bool, href: string}           | []         |
+| expandOnHover            | Boolean               | Active hover and touch (mobile) effects                                                                      | false      |
+| onSectorHover            | Function              | Callback when one sector is hovered or touched (mobile) - ex: `(data, index, event) => {}`                   | null       |
 | expandSize               | Number                | expand size, in pixels. Used if `expandOnHover` is active or one data has `expanded` attribute set to `true` |
-| strokeColor              | String                | Sector stroke color                                                                                          | "#fff"                                |
-| strokeLinejoin           | String                | Sector stroke line join (One of `miter`, `round`, `bevel`)                                                   | "round"                               |
-| strokeWidth              | Number                | Sector width, in pixels (0 to disable stroke)                                                                | 1                                     |
-| viewBoxSize              | Number                | SVG viewbox width and height                                                                                 | 100                                   |
-| transitionDuration       | String                | CSS property for transition-duration, set to `0s` to disable transition                                      | "0s"                                  |
-| transitionTimingFunction | String                | CSS Property for transition-timing-function                                                                  | "ease-out"                            |
-| hyperlinkMethod          | Function or Boolean   | Provide a function to generate an href, it is passed a data object containing the section title.             | data => return '/route/' + data.title |
+| strokeColor              | String                | Sector stroke color                                                                                          | "#fff"     |
+| strokeLinejoin           | String                | Sector stroke line join (One of `miter`, `round`, `bevel`)                                                   | "round"    |
+| strokeWidth              | Number                | Sector width, in pixels (0 to disable stroke)                                                                | 1          |
+| viewBoxSize              | Number                | SVG viewbox width and height                                                                                 | 100        |
+| transitionDuration       | String                | CSS property for transition-duration, set to `0s` to disable transition                                      | "0s"       |
+| transitionTimingFunction | String                | CSS Property for transition-timing-function                                                                  | "ease-out" |
 
 ## Contributing
 

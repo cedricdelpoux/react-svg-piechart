@@ -12,9 +12,9 @@ const Sector = ({
   onMouseLeave,
   path,
   title,
+  href,
   transitionDuration,
   transitionTimingFunction,
-  hyperlinkMethod,
 }) => {
   let result
 
@@ -39,16 +39,8 @@ const Sector = ({
     </path>
   )
 
-  if (hyperlinkMethod) {
-    result = (
-      <a
-        xlinkHref={hyperlinkMethod({
-          title,
-        })}
-      >
-        {content}
-      </a>
-    )
+  if (href) {
+    result = <a href={href}>{content}</a>
   } else {
     result = content
   }
@@ -67,9 +59,9 @@ Sector.propTypes = {
   strokeLinejoin: PropTypes.string,
   strokeWidth: PropTypes.number,
   title: PropTypes.string,
+  href: PropTypes.string,
   transitionDuration: PropTypes.string,
   transitionTimingFunction: PropTypes.string,
-  hyperlinkMethod: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 }
 
 Sector.defaultProps = {
@@ -77,9 +69,9 @@ Sector.defaultProps = {
   strokeWidth: 1,
   strokeLinejoin: "round",
   title: null,
+  href: null,
   transitionDuration: "0s",
   transitionTimingFunction: "ease-out",
-  hyperlinkMethod: false,
 }
 
 export default Sector
