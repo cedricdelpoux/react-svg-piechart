@@ -1,15 +1,25 @@
 {
   "name": "react-svg-piechart",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "author": {
     "name": "Cédric Delpoux",
     "email": "xuopled@gmail.com"
   },
-  "description":
-    "A lightweight responsive pie chart component for React using only SVG",
-  "files": ["es", "lib", "umd"],
+  "description": "A lightweight responsive pie chart component for React using only SVG",
+  "files": [
+    "es",
+    "lib",
+    "umd"
+  ],
   "homepage": "https://github.com/xuopled/react-svg-piechart#readme",
-  "keywords": ["react", "pie", "chart", "piechart", "responsive", "svg"],
+  "keywords": [
+    "react",
+    "pie",
+    "chart",
+    "piechart",
+    "responsive",
+    "svg"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "module": "es/index.js",

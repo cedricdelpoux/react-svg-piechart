@@ -30,11 +30,14 @@ const SectorFixture = (
     onMouseLeave={onMouseLeave}
   />
 )
+const SectorWithLinkFixture = <Sector {...props} href="#" />
 const SectorWithTitleFixture = <Sector {...props} title={title} />
 
 describe("Sector", () => {
   it("renders", () => {
     mount(SectorFixture)
+    mount(SectorWithLinkFixture)
+    mount(SectorWithTitleFixture)
   })
 
   it("generates <title>", () => {
