@@ -64,9 +64,10 @@ const MyCompo = () => (
 | Name                     | PropType              | Description                                                                                                  | Default    |
 | ------------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
 | data                     | Array of data Objects | One data is {value: number (required), color: string, title: string, expanded: bool, href: string}           | []         |
+| expandedIndex            | Number                | Pass in an index to manually control the expanded pie of the pie
 | expandOnHover            | Boolean               | Active hover and touch (mobile) effects                                                                      | false      |
 | onSectorHover            | Function              | Callback when one sector is hovered or touched (mobile) - ex: `(data, index, event) => {}`                   | null       |
-| expandSize               | Number                | expand size, in pixels. Used if `expandOnHover` is active or one data has `expanded` attribute set to `true` |
+| expandSize               | Number                | expand size, in pixels. Used if `expandOnHover` is active or one data has `expanded` attribute set to `true` |            |
 | strokeColor              | String                | Sector stroke color                                                                                          | "#fff"     |
 | strokeLinejoin           | String                | Sector stroke line join (One of `miter`, `round`, `bevel`)                                                   | "round"    |
 | strokeWidth              | Number                | Sector width, in pixels (0 to disable stroke)                                                                | 1          |

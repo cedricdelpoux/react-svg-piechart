@@ -1,3 +1,12 @@
+# 2.1.1
+
+* Fixed: Charts with values < 1
+
+# 2.1.0
+
+* Added: Manual expand feature by @tnormington
+* Added: Transition props by @tnormington
+
 # 2.0.3
 
 * Fixed: Single data color
