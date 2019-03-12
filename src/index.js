@@ -104,6 +104,7 @@ PieChart.propTypes = {
       color: PropTypes.string.isRequired,
       title: PropTypes.string,
       value: PropTypes.number.isRequired,
+      href: PropTypes.string,
     })
   ).isRequired,
   expandOnHover: PropTypes.bool,
