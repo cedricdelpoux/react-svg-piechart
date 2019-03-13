@@ -1,6 +1,10 @@
+# 2.3.0
+
+- Added: `startAngle` prop by @whamtet
+
 # 2.2.0
 
--   Added: href prop on sector by @tnormington
+-   Added: `href` by  prop on sector by @tnormington
 -   Added: Tests
 -   Updated: Use yarn instead of npm
 -   Updated: Dependencies
