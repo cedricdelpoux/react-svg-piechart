@@ -10,25 +10,26 @@ const Sectors = ({
   expandSize,
   strokeWidth,
   strokeColor,
+  startAngle,
   ...props
 }) => {
   const total = data.reduce((prev, current) => current.value + prev, 0)
-  let angleStart = 0
-  let angleEnd = 0
+  let angleStart = startAngle
+  let angleEnd = startAngle
   return total > 0 ? (
     <g>
       {data.map((d, i) => {
         const isLarge = d.value / total > 0.5
-        const angle = (360 * d.value) / total
+        const angle = 360 * d.value / total
         const radius = center + (d.expanded ? expandSize : 0) - strokeWidth / 2
 
         angleStart = angleEnd
         angleEnd = angleStart + angle
 
-        const x1 = center + radius * Math.cos((Math.PI * angleStart) / 180)
-        const y1 = center + radius * Math.sin((Math.PI * angleStart) / 180)
-        const x2 = center + radius * Math.cos((Math.PI * angleEnd) / 180)
-        const y2 = center + radius * Math.sin((Math.PI * angleEnd) / 180)
+        const x1 = center + radius * Math.cos(Math.PI * angleStart / 180)
+        const y1 = center + radius * Math.sin(Math.PI * angleStart / 180)
+        const x2 = center + radius * Math.cos(Math.PI * angleEnd / 180)
+        const y2 = center + radius * Math.sin(Math.PI * angleEnd / 180)
         const path = `
           M${center},${center}
           L${x1},${y1}
@@ -73,6 +74,7 @@ Sectors.propTypes = {
   expandSize: PropTypes.number,
   strokeColor: Sector.propTypes.strokeColor,
   strokeWidth: Sector.propTypes.strokeWidth,
+  startAngle: PropTypes.number,
 }
 
 Sectors.defaultProps = {
