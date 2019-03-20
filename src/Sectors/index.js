@@ -11,6 +11,7 @@ const Sectors = ({
   strokeWidth,
   strokeColor,
   startAngle,
+  angleMargin,
   ...props
 }) => {
   const total = data.reduce((prev, current) => current.value + prev, 0)
@@ -24,7 +25,8 @@ const Sectors = ({
         const radius = center + (d.expanded ? expandSize : 0) - strokeWidth / 2
 
         angleStart = angleEnd
-        angleEnd = angleStart + angle
+        angleMargin = angleMargin > angle ? angle : angleMargin
+        angleEnd = angleStart + angle - angleMargin
 
         const x1 = center + radius * Math.cos(Math.PI * angleStart / 180)
         const y1 = center + radius * Math.sin(Math.PI * angleStart / 180)
@@ -38,6 +40,8 @@ const Sectors = ({
           ${x2},${y2}
           z
         `
+
+        angleEnd += angleMargin;
 
         return (
           <Sector
@@ -75,6 +79,7 @@ Sectors.propTypes = {
   strokeColor: Sector.propTypes.strokeColor,
   strokeWidth: Sector.propTypes.strokeWidth,
   startAngle: PropTypes.number,
+  angleMargin: PropTypes.number
 }
 
 Sectors.defaultProps = {
