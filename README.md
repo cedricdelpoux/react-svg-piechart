@@ -32,7 +32,7 @@ See [Demo page][github-page]
 
 ```js
 import React from "react"
-import PieChart from "react-svg-piechart"
+import ReactSvgPieChart from "react-svg-piechart"
 
 const data = [
   {title: "Data 1", value: 100, color: "#22594e"},
@@ -54,7 +54,7 @@ const MyCompo = () => (
       } else {
         console.log("Mouse leave - Index:", i, "Event:", e)
       }
-    }
+    }}
   />
 )
 ```
@@ -64,12 +64,13 @@ const MyCompo = () => (
 | Name                     | PropType              | Description                                                                                                  | Default    |
 | ------------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
 | data                     | Array of data Objects | One data is {value: number (required), color: string, title: string, expanded: bool, href: string}           | []         |
-| expandedIndex            | Number                | Pass in an index to manually control the expanded pie of the pie
+| expandedIndex            | Number                | Pass in an index to manually control the expanded sector of the pie
 | expandOnHover            | Boolean               | Active hover and touch (mobile) effects                                                                      | false      |
 | onSectorHover            | Function              | Callback when one sector is hovered or touched (mobile) - ex: `(data, index, event) => {}`                   | null       |
 | expandSize               | Number                | expand size, in pixels. Used if `expandOnHover` is active or one data has `expanded` attribute set to `true` |            |
 | strokeColor              | String                | Sector stroke color                                                                                          | "#fff"     |
 | startAngle               | Number                | Angle to start drawing sectors from measured clockwise from the x-axis                                       | 0          |
+| angleMargin              | Number                | Angle of margin between sectors                                                                              | 0          |
 | strokeLinejoin           | String                | Sector stroke line join (One of `miter`, `round`, `bevel`)                                                   | "round"    |
 | strokeWidth              | Number                | Sector width, in pixels (0 to disable stroke)                                                                | 1          |
 | viewBoxSize              | Number                | SVG viewbox width and height                                                                                 | 100        |
