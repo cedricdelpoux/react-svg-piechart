@@ -32,7 +32,7 @@ See [Demo page][github-page]
 
 ```js
 import React from "react"
-import PieChart from "react-svg-piechart"
+import ReactSvgPieChart from "react-svg-piechart"
 
 const data = [
   {title: "Data 1", value: 100, color: "#22594e"},
@@ -54,7 +54,7 @@ const MyCompo = () => (
       } else {
         console.log("Mouse leave - Index:", i, "Event:", e)
       }
-    }
+    }}
   />
 )
 ```
