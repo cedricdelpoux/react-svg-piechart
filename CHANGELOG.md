@@ -1,7 +1,3 @@
-# 2.3.1
-
-- Added: `angleMargin` prop by @entozoon
-
 # 2.3.0
 
 - Added: `startAngle` prop by @whamtet
