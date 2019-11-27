@@ -26,7 +26,7 @@ https://unpkg.com/react-svg-piechart/umd/react-svg-piechart.js
 
 ## Demo
 
-See [Demo page][github-page]
+See [Demo page](https://cedricdelpoux.github.io/react-svg-piechart/)
 
 ## Usage
 
