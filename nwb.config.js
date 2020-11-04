@@ -19,7 +19,6 @@ const extraWebpackConfig = {
 // eslint-disable-next-line
 module.exports = {
   type: "react-component",
-  polyfill: false,
   npm: {
     cjs: true,
     esModules: true,
@@ -31,7 +30,6 @@ module.exports = {
       },
     },
   },
-  uglify: false,
   webpack: {
     extra: extraWebpackConfig,
   },
