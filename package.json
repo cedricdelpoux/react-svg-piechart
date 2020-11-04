@@ -1,9 +1,9 @@
 {
   "name": "react-svg-piechart",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "author": {
     "name": "Cédric Delpoux",
-    "email": "xuopled@gmail.com"
+    "email": "cedric.delpoux@gmail.com"
   },
   "description": "A lightweight responsive pie chart component for React using only SVG",
   "files": [
@@ -11,7 +11,7 @@
     "lib",
     "umd"
   ],
-  "homepage": "https://github.com/xuopled/react-svg-piechart#readme",
+  "homepage": "https://github.com/cedricdelpoux/react-svg-piechart#readme",
   "keywords": [
     "react",
     "pie",
@@ -25,7 +25,7 @@
   "module": "es/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xuopled/react-svg-piechart.git"
+    "url": "git+https://github.com/cedricdelpoux/react-svg-piechart.git"
   },
   "scripts": {
     "build": "nwb build-react-component",
@@ -33,7 +33,7 @@
     "deploy": "gh-pages -d demo/dist",
     "lint": "eslint src demo/src",
     "precommit": "lint-staged",
-    "prepublish": "yarn run clean && yarn run build",
+    "prepublishOnly": "yarn run clean && yarn run build",
     "start": "nwb serve-react-demo --port 1190",
     "test": "jest --config jest.config.json --colors --no-cache",
     "test:watch": "yarn test -- --watch"
