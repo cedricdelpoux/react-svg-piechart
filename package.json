@@ -35,7 +35,7 @@
     "precommit": "lint-staged",
     "prepublishOnly": "yarn run clean && yarn run build",
     "start": "nwb serve-react-demo --port 1190",
-    "test": "jest --config jest.config.json --colors --no-cache",
+    "test": "jest --config jest.config.json --coverage --colors --no-cache",
     "test:watch": "yarn test -- --watch"
   },
   "devDependencies": {
