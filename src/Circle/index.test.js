@@ -27,6 +27,23 @@ const CircleFixture = (
 const CircleWithTitleFixture = <Circle {...props} title={title} />
 
 describe("Circle", () => {
+  const consoleError = console.error;
+
+  beforeEach(() => {
+    console.error = (error) => {
+      if (
+        error ===
+        "Warning: The tag <ellipse> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter."
+      ) {
+        return;
+      }
+    };
+  });
+
+  afterEach(() => {
+    console.error = consoleError;
+  });
+
   it("renders", () => {
     mount(CircleFixture)
   })

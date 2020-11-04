@@ -22,6 +22,23 @@ const SectorsNoHoverFixture = <Sectors data={data} center={50} />
 const SectorsLargeArcFixture = <Sectors data={[d1]} center={50} />
 
 describe("Sectors", () => {
+  const consoleError = console.error;
+
+  beforeEach(() => {
+    console.error = (error) => {
+      if (
+        error ===
+        "Warning: The tag <g> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter."
+      ) {
+        return;
+      }
+    };
+  });
+
+  afterEach(() => {
+    console.error = consoleError;
+  });
+
   it("renders", () => {
     mount(SectorsFixture)
     mount(SectorsNoHoverFixture)
